@@ -6,12 +6,9 @@
 		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 	</head>
 	<body>
-		<ul>
-	    <li ><a href="index.php">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    <li><a href="login.php">Login</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    <li><a href="register.html">Register</a></li>
-	</ul>
-	<br><br>
+	<?php
+	include("menu.php");
+	?>
 	<?php
 	$db=mysqli_connect("127.0.0.1","root","","travel_information");
 	if(!$db)

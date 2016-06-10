@@ -27,8 +27,19 @@
 </div>
 <div id="content">
 	<ul>
-    <li display=inline><a href="index.php">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <li><a href="login.html">Login</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <li display=inline><a href="index.php">Home</a></li>
+<?php
+session_start();
+if(isset($_SESSION['name'])):
+?>
+    <li><a href="logout.php">Logout</a></li>
+<?php
+else:
+?>
+    <li><a href="login.html">Login</a></li>
+<?php
+endif;
+?>
     <li><a href="register.html">Register</a></li>
 </ul>
 <br>

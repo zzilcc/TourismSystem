@@ -6,12 +6,11 @@
 		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 	</head>
 	<body>
-		<div id="content">
-			<ul>
-		    <li><a href="index.php">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		    <li><a href="login.html">Login</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		    <li><a href="register.html">Register</a></li>
-		</ul>
+	<?php include("menu.php"); ?>
+<?php
+session_start();
+if(isset($_SESSION['name'])):
+?>
 		<form  align=center>
 		 Title<br><input type="text" name="Title"><br>
      Address<br><input type="text" name="Address"><br>
@@ -19,6 +18,10 @@
 		 OverTime<br><input type="text" name="OverTime"><br>
 		 Impressions<br><input type="text" name="Impressions"><br>
      <input type="submit" value="Submit" />
+<?php
+endif;
+?>
+
 </form>
 	</body>
 </html>

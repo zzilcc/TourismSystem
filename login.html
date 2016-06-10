@@ -9,18 +9,15 @@
 	<body>
 <div id="content">
 	<ul>
-<li><a href="index.html">Comeback Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<li><a href="index.php">Comeback Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <li><a href="register.html">register</a></li>
 </ul></div>
 
-<form   method="post" ;align=center action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+<form   method="post" ;align=center action="checkLogin.php">
 <p>Name: <input type="text" name="name" /></p>
 <p>Password: <input type="password" name="password" /></p>
 <input type="submit" value="Submit" />
 </form>
-<?php
-//retrieve session data
-echo "Pageviews=". $_SESSION['views'];
-?>
+
 </body>
 </html>

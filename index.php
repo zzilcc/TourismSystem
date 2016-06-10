@@ -17,9 +17,9 @@
   <h2>Tourism information</h2>
   <ul>
      <br>
-     <li><a href="query.html">Query information</a></li>
+     <li><a href="query.php">Query information</a></li>
      <br>
-     <li><a href="add.html">Add information</a></li>
+     <li><a href="add.php">Add information</a></li>
      <br>
      <li><a href="about.html">About me</a></li>
      <br>
@@ -27,14 +27,14 @@
 </div>
 <div id="content">
 	<ul>
-    <li display=inline><a href="index.html">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <li><a href="Management.html">Acount Management</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <li display=inline><a href="index.php">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <li><a href="login.html">Login</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <li><a href="register.html">Register</a></li>
 </ul>
 <br>
 <br>
 <br>
+
 </div>
 <div id="footer">Copyright </div>
 </div>

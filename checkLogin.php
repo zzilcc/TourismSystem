@@ -9,12 +9,8 @@ unset($_SESSION['gender']);
 		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 </head>
 <body>
-	<div id="content">
-		<ul>
-	<li><a href="index.php">Comeback Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<li><a href="register.html">register</a></li>
-	</ul></div>
 
+<?php include("menu.php"); ?>
 <?php
 $name=$_POST['name'];
 $password=$_POST['password'];

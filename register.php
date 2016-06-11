@@ -1,33 +1,26 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<tile></title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-<body>
-	<div id="content">
-		<ul>
-	<li><a href="index.php">Comeback Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<li><a href="login.html">Login</a></li>
-	</ul></div>
-
-<?php
-$db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not connect:'.mysql_error());
-
-mysqli_select_db($db,"travel_information");
-// $a="INSERT INTO register ('id','name', 'password','gender') VALUES ( " . 'NULL'. " ,' " . $_POST['name']. " ', ' " .  $_POST['password']. " ','".$_POST['gender']." ')";
-$a="INSERT INTO  `register` (
-`id` ,
-`name` ,
-`password` ,
-`gender`
-)
-VALUES (
-NULL ,  '".$_POST['name']."',  '".$_POST['password']."',  '".$_POST['gender']."'
-)";
-
-echo $a;
-mysqli_query($db,$a);
-mysqli_close($db);
-?>
-</html>
+	<title>register</title>
+		<meta name="keywords" content="register"/>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
+	<body>
+<?php 
+include("menu.php"); 
+?>
+
+<form method="post" action="reg.php">
+   Input name<input type="text" name="name">
+	 <br>
+	 Input password<input type="password" name="password">
+	 <br>
+   gender:
+   <input type="radio" name="gender" value="female">female
+   <input type="radio" name="gender" value="male">male
+   <br><br>
+   <input type="submit" name="submit" value="registered">
+</form>
+
 </body>
+</html>

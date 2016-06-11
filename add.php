@@ -11,12 +11,11 @@
 session_start();
 if(isset($_SESSION['name'])):
 ?>
-		<form  align=center>
+		<form method="post" action="addinf.php"> 
 		 Title<br><input type="text" name="Title"><br>
      Address<br><input type="text" name="Address"><br>
-		 StartTime<br><input type="text" name="StartTime"><br>
-		 OverTime<br><input type="text" name="OverTime"><br>
-		 Impressions<br><input type="text" name="Impressions"><br>
+		 Time<br><input type="text" name="Time" value="<?php  echo date('Y-m-d') ?>"><br>
+		 Impressions<br><input type="text" name="Impression"><br>
      <input type="submit" value="Submit" />
 <?php
 endif;

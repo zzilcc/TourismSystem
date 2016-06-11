@@ -4,6 +4,7 @@
 	<title></title>
 		<meta name="keywords" content=""/>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<?php include("header.php") ?>
 	</head>
 	<body>
 	<?php

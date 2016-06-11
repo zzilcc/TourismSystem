@@ -80,7 +80,11 @@ session_start();
 
   <p>登陆成功：<?php echo $_SESSION['name'] ?></p>
 
+<div class="row">
+<div class="col-md-offset-10">
   <p><a class="btn btn-primary btn-lg" href="index.php">Ok</a></p>
+  </div>
+ </div>
 </div>
 
 <?php endif; ?>

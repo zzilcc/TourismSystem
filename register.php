@@ -110,7 +110,11 @@ mysqli_close($db);
 <div class="jumbotron">
   <h2>注册成功</h2>
 
+<div class="row">
+<div class="col-md-offset-10">
   <p>用户已注册：<?php echo $_SESSION['name'] ?></p>
+  </div>
+ </div>
 
   <p><a class="btn btn-primary btn-lg" href="index.php">Ok</a></p>
 </div>

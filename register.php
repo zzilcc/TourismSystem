@@ -16,6 +16,7 @@ if(isset($_SESSION['gender']))
 
 if(isset($_POST['name'])) {
 $db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not connect:'.mysql_error());
+mysqli_query($db,"set names utf8");
 
 mysqli_select_db($db,"travel_information");
 
@@ -110,13 +111,13 @@ mysqli_close($db);
 <div class="jumbotron">
   <h2>注册成功</h2>
 
+  <p>用户已注册：<?php echo $_SESSION['name'] ?></p>
+
 <div class="row">
 <div class="col-md-offset-10">
-  <p>用户已注册：<?php echo $_SESSION['name'] ?></p>
-  </div>
- </div>
-
   <p><a class="btn btn-primary btn-lg" href="index.php">Ok</a></p>
+  </div>
+  </div>
 </div>
 <? endif; ?>
 </div>

@@ -18,6 +18,7 @@
 <?php
 session_start();
 $db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not connect:'.mysql_error());
+mysqli_query($db,"set names utf8");
 
 mysqli_select_db($db,"travel_information");
 $a="INSERT INTO  `information` (

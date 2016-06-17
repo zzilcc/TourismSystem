@@ -17,35 +17,46 @@ if(isset($_SESSION['gender']))
 if(isset($_POST['name'])) {
 $db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not connect:'.mysql_error());
 mysqli_query($db,"set names utf8");
-
 mysqli_select_db($db,"travel_information");
-
-$sql="SELECT * 
-FROM  `register` 
+$sql="SELECT *
+FROM  `register`
 WHERE  `name` =  '$_POST[name]'";
-
 if(mysqli_num_rows(mysqli_query($db, $sql)) == 0) {
 $a="INSERT INTO  `register` (
 `id` ,
 `name` ,
 `password` ,
-`gender`
+`gender`,
+`authentication`
 )
 VALUES (
 NULL ,  '".$_POST['name']."',  '".$_POST['password']."',  '".$_POST['gender']."'
-)";
-
+,  '0')";
 // echo $a;
 mysqli_query($db,$a);
 $_SESSION['name'] = $_POST['name'];
 $_SESSION['gender'] = $_POST['gender'];
 }
 else {
+	echo  '<script>alert("User name already exists,please input again"); </script>';
 if(isset($_SESSION['name']))
 	unset($_SESSION['name']);
 if(isset($_SESSION['gender']))
 	unset($_SESSION['gender']);
+
 }
+//echo @$_POST['name'];
+//echo @$_POST['password'];
+//echo @$_POST['agapassword'];
+if($_POST["password"]==NULL)
+    echo '<script>alert("password cannot be empty"); </script>';
+		if(isset($_SESSION['name']))
+			unset($_SESSION['name']);
+		if(isset($_SESSION['gender']))
+			unset($_SESSION['gender']);
+elseif($_POST["password"]!=$_POST["agapassword"])
+		echo '<script>alert("Twice input password differently, please enter again!"); </script>';
+
 mysqli_close($db);
 
 }
@@ -71,12 +82,20 @@ mysqli_close($db);
 		<div class="col-md-10">
 		<input type="text" placeholder="Name" name="name" class="form-control">
 		</div>
+
 	</div>
 
 	<div class="form-group">
 		<label  class="col-md-2 control-label">Password</label>
 		<div class="col-md-10">
 		<input type="password" placeholder="Password" name="password" class="form-control">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label  class="col-md-2 control-label">Password again</label>
+		<div class="col-md-10">
+		<input type="password" placeholder="Password" name="agapassword" class="form-control">
 		</div>
 	</div>
 

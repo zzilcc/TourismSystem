@@ -36,9 +36,7 @@ include("menu.php");
 <?php
 $db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not connect:'.mysql_error());
 mysqli_query($db,"set names utf8");
-
 mysqli_select_db($db,"travel_information");
-
 $a="SELECT * FROM  `information` order by time desc";
 $query = mysqli_query($db,$a);
 $query_num = mysqli_num_rows($query);
@@ -47,14 +45,12 @@ $query_info = mysqli_fetch_assoc($query);
 if(isset($_SESSION['name']) && $_SESSION['name'] == $query_info['name'])
 echo "<tr class=info>";
 else echo "<tr>";
-
 echo " <td>$query_info[name]</td><td>$query_info[title]</td><td>$query_info[address]</td><td>$query_info[time]</td><td>$query_info[impression]</td>";
 if(isset($_SESSION['name']) && $_SESSION['name'] == $query_info['name'])
 	echo "<td><a href='update.php?id=".$query_info['id']."'>Update</a></td>";
 else
 	echo "<td>Update</td>";
 }
-
 // echo $a;
 mysqli_close($db);
 ?>

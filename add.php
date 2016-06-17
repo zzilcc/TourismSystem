@@ -26,30 +26,30 @@ if(isset($_SESSION['name'])):
     <legend>Add information</legend>
 
 	<div class="form-group">
-		<label for="Title" class="col-md-2 control-label">Title</label>
+		<label for="Title" class="col-md-2 control-label">Scenename</label>
 		<div class="col-md-10">
-		<input type="text" id="Title" placeholder="Title" name="Title" class="form-control">
+		<input type="text" id="Scenename" placeholder="Scenename" name="Scenename" class="form-control">
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-md-2 control-label">Address</label>
+		<label class="col-md-2 control-label">Location</label>
 		<div class="col-md-10">
-		<input type="text" placeholder="Address" name="Address" class="form-control">
+		<input type="text" placeholder="Location" name="Location" class="form-control">
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-md-2 control-label">Date</label>
+		<label class="col-md-2 control-label">cost</label>
 		<div class="col-md-10">
-		<input type="date" placeholder="<?php echo date('Y-m-d'); ?>" name="Time" class="form-control">
+		<input type="text" placeholder="cost" name="cost" class="form-control">
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-md-2 control-label">Impression</label>
+		<label class="col-md-2 control-label">Instructions</label>
 		<div class="col-md-10">
-		<input type="text" placeholder="Impression" name="Impression" class="form-control">
+		<input type="text" placeholder="Instructions" name="Instructions" class="form-control">
 		</div>
 	</div>
 

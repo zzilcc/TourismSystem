@@ -21,20 +21,17 @@ $db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not
 mysqli_query($db,"set names utf8");
 
 mysqli_select_db($db,"travel_information");
-$a="INSERT INTO  `information` (
-`id` ,
-`name` ,
-`title` ,
-`address` ,
-`time` ,
-`impression`
+$a="INSERT INTO  `travel_information`.`sceneinfor` (
+`Scenename` ,
+`Location` ,
+`cost` ,
+`Instructions`
 )
 VALUES (
-NULL ,  '".$_SESSION['name']."',  '".$_POST['Title']."',  '".$_POST['Address']."',  '".$_POST['Time']."',  '".$_POST['Impression']."'
-)";
+'$_POST[Scenename]',  '$_POST[Location]',  '$_POST[cost]',  '$_POST[Instructions]'";
 
 
-// echo $a;
+ echo $a;
 mysqli_query($db,$a);
 mysqli_close($db);
 ?>
@@ -46,7 +43,7 @@ mysqli_close($db);
 
 <div class="row">
 <div class="col-md-offset-10">
-  <p><a class="btn btn-primary btn-lg" href="index.php">Ok</a></p>
+  <p><a class="btn btn-primary btn-lg" href="sceneinformation.php">Ok</a></p>
   </div>
  </div>
 </div>
@@ -61,4 +58,3 @@ mysqli_close($db);
 <?php include("footer.php"); ?>
 	</body>
 </html>
-

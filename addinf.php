@@ -15,8 +15,11 @@
 </div>
 
 <div class="col-md-10">
+
 <?php
-session_start();
+	session_start();
+	
+ if(isset($_SESSION[`Scenename`])):
 $db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not connect:'.mysql_error());
 mysqli_query($db,"set names utf8");
 
@@ -35,7 +38,6 @@ VALUES (
 mysqli_query($db,$a);
 mysqli_close($db);
 ?>
-
 <div class="jumbotron">
   <h2>添加成功</h2>
 
@@ -44,16 +46,16 @@ mysqli_close($db);
 <div class="row">
 <div class="col-md-offset-10">
   <p><a class="btn btn-primary btn-lg" href="sceneinformation.php">Ok</a></p>
+
+
   </div>
  </div>
 </div>
 
-
-
-</div>
-
 </div>
 </div>
+</div>
+
 
 <?php include("footer.php"); ?>
 	</body>

@@ -17,6 +17,7 @@
 <div class="col-md-10">
 <?php
 session_start();
+if($_SESSION['authentication']=1):
 if(isset($_SESSION['name'])):
 ?>
 
@@ -57,7 +58,23 @@ if(isset($_SESSION['name'])):
 	</fieldset>
 </form>
 	</div>
+	<?php
+	else:
+	?>
+	<div class="jumbotron">
+	 <h2>Error</h2>
 
+	 <p>You are not the administrator！</p>
+
+	<div class="row">
+
+
+	 </div>
+	 </div>
+	</div>
+	<?php
+	endif;
+	?>
 <?php
 else:
 ?>
@@ -72,6 +89,7 @@ else:
   </div>
  </div>
 </div>
+
 <?php
 endif;
 ?>

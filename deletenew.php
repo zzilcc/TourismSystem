@@ -18,7 +18,7 @@
  <div class="col-md-10">
 	 <?php
 	     session_start();
-
+       if($_SESSION['authentication']=1):
 	 		 if(isset($_SESSION['name'])):
 	 	 	$db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not connect:'.mysql_error());
 	 	 	mysqli_query($db,"set names utf8");
@@ -58,6 +58,23 @@
  	</fieldset>
  </form>
  </div>
+ <?php
+ else:
+ ?>
+ <div class="jumbotron">
+ 	<h2>Error</h2>
+
+ 	<p>You are not the administrator！</p>
+
+ <div class="row">
+
+
+ 	</div>
+  </div>
+ </div>
+ <?php
+ endif;
+ ?>
 
  <?php
  endif;

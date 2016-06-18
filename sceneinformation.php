@@ -9,7 +9,6 @@
   <body>
 	<div class="container">
 	<?php include("menu.php"); ?>
-
 <div class="row">
 <div class="col-md-2">
 	<?php include("vmenu.php"); ?>
@@ -17,45 +16,92 @@
 <div class="col-md-10">
 
 <div class="well well-lg">
+
 	<table class="table table-striped table-hover ">
 	  <thead>
+
 	  <tr>
-	    <th><i class="material-icons">person</i> Scenename</th>
-	    <th><i class="material-icons">title</i> Location</th>
-	    <th><i class="material-icons">gps_fixed</i> cost</th>
-	    <th><i class="material-icons">date_range</i> Instructions</th>
-	  
+			<?php
+
+			session_start();
+			if(isset($_SESSION['authentication']))
+			if($_SESSION['authentication']==1):
+
+					?>
+			<a class="btn btn-raised" href="add.php"><i class="material-icons">add</i> Add News</a>
+		<?php	else:
+				echo "Add News";
+
+			?>
+			<?php
+		  endif;
+		  ?>
+	    <th><i class="material-icons">favorite</i> Scenename</th>
+	    <th><i class="material-icons">widgets</i> Location</th>
+	    <th><i class="material-icons">attach_money</i> cost</th>
+	    <th><i class="material-icons">sms</i> Instructions</th>
+	    <th><i class="material-icons">update</i> Update</th>
+			<th><i class="material-icons">delete</i> delete</th>
 	  </tr>
 	  </thead>
 	  <tbody>
 
 	<?php
+
+	if(isset($_SESSION['name'])):
+	?>
+	<?php
+
 	$db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not connect:'.mysql_error());
 	mysqli_query($db,"set names utf8");
 
 	mysqli_select_db($db,"travel_information");
 
-	$a="SELECT * FROM  `sceneinfor` order by time desc";
-	$query = mysqli_query($db,$a);
-	@$query_num = mysqli_num_rows($query);
-	for($i=0; $i<$query_num; ++$i)  {
-	$query_info = mysqli_fetch_assoc($query);
-	if(isset($_SESSION['name']) && $_SESSION['name'] == $query_info['name'])
-	echo "<tr class=info>";
-	else echo "<tr>";
+	$sql_sce="SELECT * FROM  `sceneinfor` ";
+	$query = mysqli_query($db,$sql_sce);
+	$query_num = mysqli_num_rows($query);
 
-	echo " <td>$query_info[Scenename]</td><td>$query_info[Location]</td><td>$query_info[cost]</td><td>$query_info[Instructions]</td>";
-	//if()
-	//	echo "<td><a href='update.php?id=".$query_info['id']."'>Update</a></td>";
-	//else
-	//	echo "<td>Update</td>";
+	for($i=0; $i<$query_num; ++$i){
+	  $query_info = mysqli_fetch_assoc($query);
+		//var_dump($query_info);
+		//echo $query_info;
+	  echo " <td>$query_info[Scenename]</td><td>$query_info[Location]</td><td>$query_info[cost]</td>
+		<td>$query_info[Instructions]</td> ";
+//echo $query_info["id"];
+  // var_dump($query_info);
+		//echo $query_info;
+
+	  if($_SESSION['authentication']==1)
+      echo " <td><a href='update.php?id=$query_info[id]'>Update</a></td><td><a href='delete.php?id= $query_info[id]'>Delete</a></td>";
+	  else
+    	echo "<td>Update</td><td>Delete</td>";
+    echo '<tr>';
 	}
-
 	// echo $a;
 	mysqli_close($db);
 	?>
+
+
 	</tbody>
 	</table>
+
+	<?php
+	else:
+	?>
+	<div class="jumbotron">
+	  <h2>Please Login</h2>
+
+	  <p>请登录再操作！</p>
+
+	<div class="row">
+	<div class="col-md-offset-10">
+	  <p><a class="btn btn-primary btn-lg" href="login.php">登陆...</a></p>
+	  </div>
+	 </div>
+	</div>
+	<?php
+	endif;
+	?>
 
 </div>
 

@@ -27,10 +27,8 @@
 
   if(isset($_POST['Scenename'])) {
 		if(isset($_GET["id"])){
-  $u = "UPDATE  `sceneinfor` SET  `Scenename` =  '$_POST[Scenename]',
- `Location` =  '$_POST[Location]',
- `cost` =  '$_POST[cost]',
- `Instructions` =  '$_POST[Instructions]' WHERE  `sceneinfor`.`id` =$_GET[id]";
+  $u = "UPDATE  `latest_news` SET  `Scenename` =  '$_POST[Scenename]',
+ `news` =  '$_POST[news]' WHERE  `latest_news`.`id` =$_GET[id]";
  mysqli_query($db, $u);
 //echo $u;
 //echo $_GET["id"];
@@ -39,7 +37,7 @@
 
 if(isset($_GET["id"])){
  $a="SELECT *
- FROM  `sceneinfor`
+ FROM  `latest_news`
  WHERE  `id` =$_GET[id]";
 }
  // echo $a;
@@ -48,7 +46,7 @@ if(isset($_GET["id"])){
  ?>
 
  <div class="well bs-component">
- <form method="post" action="update.php?id=<?php echo  $_GET['id']; ?>" class="form-horizontal">
+ <form method="post" action="updatenew.php?id=<?php echo  $_GET['id']; ?>" class="form-horizontal">
    <fieldset>
      <legend>Update information</legend>
 
@@ -60,23 +58,9 @@ if(isset($_GET["id"])){
  	</div>
 
  	<div class="form-group">
- 		<label class="col-md-2 control-label">Location</label>
+ 		<label class="col-md-2 control-label">news</label>
  		<div class="col-md-10">
- 		<input type="text" placeholder="Location" name="Location" class="form-control" value="<?php echo $info['Location'] ?>">
- 		</div>
- 	</div>
-
- 	<div class="form-group">
- 		<label class="col-md-2 control-label">cost</label>
- 		<div class="col-md-10">
- 		<input type="text" placeholder="cost" name="cost" class="form-control" value="<?php  echo $info['cost'] ?>">
- 		</div>
- 	</div>
-
- 	<div class="form-group">
- 		<label class="col-md-2 control-label">Instructions</label>
- 		<div class="col-md-10">
- 		<input type="text" placeholder="Instructions" name="Instructions" class="form-control" value="<?php echo $info['Instructions'] ?>">
+ 		<input type="text" placeholder="news" name="news" class="form-control" value="<?php echo $info['news'] ?>">
  		</div>
  	</div>
 

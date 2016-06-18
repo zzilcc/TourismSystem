@@ -25,12 +25,11 @@
   $db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not connect:'.mysql_error());
   mysqli_query($db,"set names utf8");
 
-  if(isset($_POST['Scenename'])) {
+  if(isset($_POST['route'])) {
 		if(isset($_GET["id"])){
-  $u = "UPDATE  `sceneinfor` SET  `Scenename` =  '$_POST[Scenename]',
- `Location` =  '$_POST[Location]',
+  $u = "UPDATE  `schedule` SET  `route` =  '$_POST[route]',
  `cost` =  '$_POST[cost]',
- `Instructions` =  '$_POST[Instructions]' WHERE  `sceneinfor`.`id` =$_GET[id]";
+ `introduction` =  '$_POST[introduction]' WHERE  `schedule`.`id` =$_GET[id]";
  mysqli_query($db, $u);
 //echo $u;
 //echo $_GET["id"];
@@ -39,7 +38,7 @@
 
 if(isset($_GET["id"])){
  $a="SELECT *
- FROM  `sceneinfor`
+ FROM  `schedule`
  WHERE  `id` =$_GET[id]";
 }
  // echo $a;
@@ -48,23 +47,18 @@ if(isset($_GET["id"])){
  ?>
 
  <div class="well bs-component">
- <form method="post" action="update.php?id=<?php echo  $_GET['id']; ?>" class="form-horizontal">
+ <form method="post" action="updatesch.php?id=<?php echo  $_GET['id']; ?>" class="form-horizontal">
    <fieldset>
      <legend>Update information</legend>
 
  	<div class="form-group">
- 		<label for="Title" class="col-md-2 control-label">Scenename</label>
+ 		<label for="Title" class="col-md-2 control-label">route</label>
  		<div class="col-md-10">
- 		<input type="text" id="Scenename" placeholder="Scenename" name="Scenename" class="form-control" value="<?php echo $info['Scenename'] ?>">
+ 		<input type="text" id="route" placeholder="route" name="route" class="form-control" value="<?php echo $info['route'] ?>">
  		</div>
  	</div>
 
- 	<div class="form-group">
- 		<label class="col-md-2 control-label">Location</label>
- 		<div class="col-md-10">
- 		<input type="text" placeholder="Location" name="Location" class="form-control" value="<?php echo $info['Location'] ?>">
- 		</div>
- 	</div>
+
 
  	<div class="form-group">
  		<label class="col-md-2 control-label">cost</label>
@@ -74,9 +68,9 @@ if(isset($_GET["id"])){
  	</div>
 
  	<div class="form-group">
- 		<label class="col-md-2 control-label">Instructions</label>
+ 		<label class="col-md-2 control-label">introduction</label>
  		<div class="col-md-10">
- 		<input type="text" placeholder="Instructions" name="Instructions" class="form-control" value="<?php echo $info['Instructions'] ?>">
+ 		<input type="text" placeholder="introduction" name="introduction" class="form-control" value="<?php echo $info['introduction'] ?>">
  		</div>
  	</div>
 

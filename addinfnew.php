@@ -21,14 +21,12 @@ $db=mysqli_connect("127.0.0.1","root","","travel_information") or die('Could not
 mysqli_query($db,"set names utf8");
 
 mysqli_select_db($db,"travel_information");
-$a="INSERT INTO  `travel_information`.`sceneinfor` (
+$a="INSERT INTO  `travel_information`.`latest_news` (
 `Scenename` ,
-`Location` ,
-`cost` ,
-`Instructions`
+`news`
 )
 VALUES (
-'$_POST[Scenename]',  '$_POST[Location]',  '$_POST[cost]',  '$_POST[Instructions]')";
+'$_POST[Scenename]', '$_POST[news]')";
 
 
 // echo $a;
@@ -43,7 +41,7 @@ mysqli_close($db);
 
 <div class="row">
 <div class="col-md-offset-10">
-  <p><a class="btn btn-primary btn-lg" href="sceneinformation.php">Ok</a></p>
+  <p><a class="btn btn-primary btn-lg" href="newestscene.php">Ok</a></p>
   </div>
  </div>
 </div>

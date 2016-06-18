@@ -14,6 +14,9 @@ session_start();
 		unset($_SESSION['name']);
 	if(isset($_SESSION['gender']))
 		unset($_SESSION['gender']);
+		if(isset($_SESSION['authentication']))
+			unset($_SESSION['authentication']);
+
 	if(isset($_POST['name'])) {
 		$name=$_POST['name'];
 		$password=$_POST['password'];
@@ -25,6 +28,12 @@ session_start();
 		FROM  `register`
 		WHERE  `name` LIKE  '$name'");
 		$query = mysqli_fetch_assoc($sql);
+
+		if($query['authentication']==1)
+	     $_SESSION['authentication']=1;
+		else
+		    $_SESSION['authentication']=0;
+
 		if( $query['password'] == $_POST['password'])
 		{
 			$_SESSION['name'] = $name;

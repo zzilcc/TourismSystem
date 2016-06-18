@@ -10,7 +10,7 @@ $cur = substr($_SERVER['PHP_SELF'],strrpos($_SERVER['PHP_SELF'],'/')+1);
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php">旅游信息系统</a>
+      <a class="navbar-brand" href="index.php">Travel System</a>
     </div>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
@@ -26,7 +26,7 @@ if(isset($_SESSION['name'])):
 else:
 ?>
 		<li><a href="login.php"><i class="material-icons">lock</i> Login</a></li>
-		<li><a href="administratorlogin.php"><i class="material-icons">lock</i> administratorLogin</a></li>
+
 		<li><a href="register.php"><i class="material-icons">grade</i> Register</a></li>
 
 <?php

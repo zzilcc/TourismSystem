@@ -27,10 +27,9 @@
 
   if(isset($_POST['Scenename'])) {
 		if(isset($_GET["id"])){
-  $u = "UPDATE  `sceneinfor` SET  `Scenename` =  '$_POST[Scenename]',
- `Location` =  '$_POST[Location]',
- `cost` =  '$_POST[cost]',
- `Instructions` =  '$_POST[Instructions]' WHERE  `sceneinfor`.`id` =$_GET[id]";
+  $u = "UPDATE  `traffic_num` SET  `Scenename` =  '$_POST[Scenename]',
+ `time` =  '$_POST[time]',
+ `Traffic` =  '$_POST[Traffic]' WHERE  `traffic_num`.`id` =$_GET[id]";
  mysqli_query($db, $u);
 //echo $u;
 //echo $_GET["id"];
@@ -39,7 +38,7 @@
 
 if(isset($_GET["id"])){
  $a="SELECT *
- FROM  `sceneinfor`
+ FROM  `traffic_num`
  WHERE  `id` =$_GET[id]";
 }
  // echo $a;
@@ -48,7 +47,7 @@ if(isset($_GET["id"])){
  ?>
 
  <div class="well bs-component">
- <form method="post" action="update.php?id=<?php echo  $_GET['id']; ?>" class="form-horizontal">
+ <form method="post" action="updatecus.php?id=<?php echo  $_GET['id']; ?>" class="form-horizontal">
    <fieldset>
      <legend>Update information</legend>
 
@@ -60,25 +59,20 @@ if(isset($_GET["id"])){
  	</div>
 
  	<div class="form-group">
- 		<label class="col-md-2 control-label">Location</label>
+ 		<label class="col-md-2 control-label">time</label>
  		<div class="col-md-10">
- 		<input type="text" placeholder="Location" name="Location" class="form-control" value="<?php echo $info['Location'] ?>">
+ 		<input type="date" placeholder="<?php echo date('Y-m-d'); ?>" name="time" class="form-control" value="<?php echo $info['time'] ?>">
  		</div>
  	</div>
 
  	<div class="form-group">
- 		<label class="col-md-2 control-label">cost</label>
+ 		<label class="col-md-2 control-label">Traffic</label>
  		<div class="col-md-10">
- 		<input type="text" placeholder="cost" name="cost" class="form-control" value="<?php  echo $info['cost'] ?>">
+ 		<input type="text" placeholder="Traffic" name="Traffic" class="form-control" value="<?php  echo $info['Traffic'] ?>">
  		</div>
  	</div>
 
- 	<div class="form-group">
- 		<label class="col-md-2 control-label">Instructions</label>
- 		<div class="col-md-10">
- 		<input type="text" placeholder="Instructions" name="Instructions" class="form-control" value="<?php echo $info['Instructions'] ?>">
- 		</div>
- 	</div>
+ 	
 
  	<div class="form-group">
  		<div class="col-md-offset-10">
